@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:lapis_block",
+    "minecraft:nether_star",
+    "minecraft:heart_of_the_sea",
+    "minecraft:conduit",
+    "minecraft:beacon",
+    "minecraft:enchanted_golden_apple",
+    "minecraft:experience_bottle",
+    "minecraft:ender_eye",
+    "minecraft:ender_pearl",
+    "minecraft:blaze_rod",
+    "minecraft:chorus_fruit",
+    "minecraft:echo_shard",
+    "minecraft:end_crystal",
+    "minecraft:ghast_tear",
+    "minecraft:debug_stick",
+    "minecraft:blaze_powder"
+  ]
+}
