@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "simple_hardcore_respawn:re_spawner"
+      "id": "simple_hardcore_respawn:re_spawner"
     },
     "title": {
       "translate": "advancements.back_one_day.title"
@@ -15,7 +15,7 @@
     "hidden": false
   },
   "criteria": {
-    "back_one_day_0": {
+    "respawn": {
       "trigger": "minecraft:impossible"
     }
   },

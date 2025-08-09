@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "simple_hardcore_respawn:item/re_spawner"
+  }
+}

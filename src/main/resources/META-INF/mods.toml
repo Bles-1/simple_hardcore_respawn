@@ -1,29 +1,20 @@
 modLoader="javafml"
-loaderVersion="[47,)"
+loaderVersion="[54,)"
 license="All Rights Reserved"
 
 [[mods]]
 modId="simple_hardcore_respawn"
-version="1.1.1"
+version="2.0.0.r0"
 displayName="Simple Hardcore Respawn"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/simple-hardcore-respawn"
 logoFile="logo.png"
-credits="Created using mod maker MCreator - https://mcreator.net/about and Blockbench image editor."
+credits=""
 authors="BLES1, Stejser_YT"
 description="Respawn in Hardcore!"
-
-# Start of user code block mod configuration
-# End of user code block mod configuration
 
 [[dependencies.simple_hardcore_respawn]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.20.1]"
+    versionRange="[1.21.4,1.22)"
     ordering="AFTER"
     side="BOTH"
-
-
-
-
-# Start of user code block dependencies configuration
-# End of user code block dependencies configuration

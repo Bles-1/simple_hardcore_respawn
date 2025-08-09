@@ -1,9 +1,8 @@
 {
   "type": "minecraft:block",
-  "random_sequence": "simple_hardcore_respawn:blocks/re_spawner",
   "pools": [
     {
-      "rolls": 1.0,
+      "rolls": 1,
       "conditions": [
         {
           "condition": "minecraft:survives_explosion"

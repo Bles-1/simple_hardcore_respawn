@@ -112,28 +112,28 @@
       "model": "simple_hardcore_respawn:block/re_spawner_4_0"
     },
 	"charges=4,power=1": {
-      "model": "simple_hardcore_respawn:block/re_spawner_3_1"
+      "model": "simple_hardcore_respawn:block/re_spawner_4_0"
     },
 	"charges=4,power=2": {
-      "model": "simple_hardcore_respawn:block/re_spawner_3_2"
+      "model": "simple_hardcore_respawn:block/re_spawner_4_0"
     },
 	"charges=4,power=3": {
-      "model": "simple_hardcore_respawn:block/re_spawner_3_3"
+      "model": "simple_hardcore_respawn:block/re_spawner_4_0"
     },
 	"charges=4,power=4": {
-      "model": "simple_hardcore_respawn:block/re_spawner_3_4"
+      "model": "simple_hardcore_respawn:block/re_spawner_4_0"
     },
 	"charges=4,power=5": {
-      "model": "simple_hardcore_respawn:block/re_spawner_3_5"
+      "model": "simple_hardcore_respawn:block/re_spawner_4_0"
     },
 	"charges=4,power=6": {
-      "model": "simple_hardcore_respawn:block/re_spawner_3_6"
+      "model": "simple_hardcore_respawn:block/re_spawner_4_0"
     },
 	"charges=4,power=7": {
-      "model": "simple_hardcore_respawn:block/re_spawner_3_7"
+      "model": "simple_hardcore_respawn:block/re_spawner_4_0"
     },
 	"charges=4,power=8": {
-      "model": "simple_hardcore_respawn:block/re_spawner_3_8"
+      "model": "simple_hardcore_respawn:block/re_spawner_4_0"
     }
   }
 }
