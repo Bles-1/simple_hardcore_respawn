@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:ender_pearl",
+    "minecraft:blaze_rod",
+    "minecraft:ghast_tear"
+  ]
+}

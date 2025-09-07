@@ -1,0 +1,10 @@
+{
+  "advancements.back_one_day.title": "🎵Back One Day🎵",
+  "gamerule.respawnerUnbanning.description": "Unban players with ReSpawner instead of respawn",
+  "gamerule.respawnerCharging": "ReSpawner Charging",
+  "advancements.back_one_day.descr": "Get respawned in Hardcore!",
+  "gamerule.respawnerUnbanning": "ReSpawner Unbanning",
+  "gamerule.respawnerCharging.description": "Does respawner need charging",
+  "block.simple_hardcore_respawn.re_spawner": "Re Spawner",
+  "item.simple_hardcore_respawn.re_spawner": "Re Spawner"
+}

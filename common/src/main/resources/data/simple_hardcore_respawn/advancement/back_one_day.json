@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "simple_hardcore_respawn:re_spawner"
+    },
+    "title": {
+      "translate": "advancements.back_one_day.title"
+    },
+    "description": {
+      "translate": "advancements.back_one_day.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "respawn": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "parent": "minecraft:adventure/totem_of_undying"
+}

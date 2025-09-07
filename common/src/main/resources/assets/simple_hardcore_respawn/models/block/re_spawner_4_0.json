@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "minecraft:block/obsidian",
+    "side": "simple_hardcore_respawn:block/respawner_side_full",
+    "top": "simple_hardcore_respawn:block/respawner_top_full"
+  },
+  "render_type": "solid"
+}

@@ -1,0 +1,1 @@
+net.ultrastudios.simplehardcorerespawn.SimpleHardcoreRespawn
