@@ -1,19 +1,20 @@
-package net.ultrastudios.simplehardcorerespawn.ttt.init;
+package net.ultrastudios.simplehardcorerespawn.init;
 
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.ultrastudios.simplehardcorerespawn.ttt.SimpleHardcoreRespawn;
+import net.ultrastudios.simplehardcorerespawn.Constants;
+import org.jetbrains.annotations.NotNull;
 
-@Mod.EventBusSubscriber(modid = SimpleHardcoreRespawn.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-public class SimpleHardcoreRespawnTabs {
+@Mod.EventBusSubscriber(modid = Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+public class InitTabs {
 
     @SubscribeEvent
-    public static void build(BuildCreativeModeTabContentsEvent event) {
+    public static void build(@NotNull BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
-            event.accept(SimpleHardcoreRespawnItems.RE_SPAWNER_ITEM);
+            SimpleHardcoreRespawnTabs.fillFunctionalBlocksTab(event);
         }
     }
 }

@@ -1,5 +1,11 @@
 package net.ultrastudios.simplehardcorerespawn.platform.services;
 
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.block.Block;
+
+import java.util.function.Supplier;
+
 public interface IPlatformHelper {
 
     /**
@@ -33,4 +39,28 @@ public interface IPlatformHelper {
 
         return isDevelopmentEnvironment() ? "development" : "production";
     }
+
+    /**
+     * Registers new block.
+     *
+     * @param id The id of block.
+     * @param block The supplier that will return new instance of block.
+     * @return The supplier that will return registered block.
+     * @param <T> Your block class, or Block if you don't have custom class.
+     */
+    <T extends Block> Supplier<T> registerBlock(String id, Supplier<T> block);
+
+    /**
+     * Registers new item.
+     *
+     * @param id The id of item.
+     * @param item The supplier that will return new instance of item.
+     * @return The supplier that will return registered item.
+     * @param <T> Your item class, or Item if you don't have custom class.
+     */
+    <T extends Item> Supplier<T> registerItem(String id, Supplier<T> item);
+
+    GameRules.Key<GameRules.BooleanValue> registerBooleanGameRule(String id, GameRules.Category category, boolean defaultValue);
+
+    GameRules.Key<GameRules.IntegerValue> registerIntegerGameRule(String id, GameRules.Category category, int defaultValue);
 }

@@ -1,20 +1,33 @@
-modLoader="neoforge"
-loaderVersion="[21.4,)"
-license="All Rights Reserved"
+modLoader="javafml"
+loaderVersion = "${neoforge_loader_version_range}"
+license = "${license}"
 
 [[mods]]
-modId="simple_hardcore_respawn"
-version="2.0.0.r0"
-displayName="Simple Hardcore Respawn"
+modId = "${mod_id}"
+version = "${version}"
+displayName = "${mod_name}"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/simple-hardcore-respawn"
 logoFile="logo.png"
-credits=""
-authors="BLES1, Stejser_YT"
-description="Respawn in Hardcore!"
+credits="${credits}"
+authors = "${mod_author}"
+description = '''${description}'''
 
-[[dependencies.simple_hardcore_respawn]]
-modId="minecraft"
-mandatory=true
-versionRange="[1.21.4,1.22)"
-ordering="AFTER"
-side="BOTH"
+[[mixins]]
+config = "${mod_id}.mixins.json"
+
+[[mixins]]
+config = "${mod_id}.neoforge.mixins.json"
+
+[[dependencies.${mod_id}]]
+modId = "neoforge"
+type="required"
+versionRange = "[${neoforge_version},)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "minecraft"
+type="required"
+versionRange = "${minecraft_version_range}"
+ordering = "AFTER"
+side = "BOTH"

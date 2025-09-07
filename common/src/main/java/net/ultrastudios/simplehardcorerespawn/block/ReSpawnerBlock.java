@@ -12,13 +12,8 @@ import net.minecraft.server.players.UserBanList;
 import net.minecraft.server.players.UserBanListEntry;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.GameType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
@@ -34,20 +29,17 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.BlockPos;
 
-import net.minecraftforge.registries.ForgeRegistries;
-import net.ultrastudios.simplehardcorerespawn.SimpleHardcoreRespawn;
+import net.ultrastudios.simplehardcorerespawn.Constants;
 import net.ultrastudios.simplehardcorerespawn.init.SimpleHardcoreRespawnGameRules;
-import net.ultrastudios.simplehardcorerespawn.init.SimpleHardcoreRespawnItems;
+import net.ultrastudios.simplehardcorerespawn.init.SimpleHardcoreRespawnTags;
 import org.jetbrains.annotations.NotNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Objects;
 
 public class ReSpawnerBlock extends Block {
 
 	public static final String BLOCK_ID = "re_spawner";
-	public static final ResourceKey<Block> BLOCK_RESOURCE_KEY = ResourceKey.create(Registries.BLOCK, ResourceLocation.parse(SimpleHardcoreRespawn.MOD_ID + ":" + BLOCK_ID));
+	public static final ResourceKey<Block> BLOCK_RESOURCE_KEY = ResourceKey.create(Registries.BLOCK, ResourceLocation.parse(Constants.MOD_ID + ":" + BLOCK_ID));
 
 	private static final int MAX_CHARGES = 4;
 	private static final int MIN_CHARGES = 0;
@@ -98,7 +90,6 @@ public class ReSpawnerBlock extends Block {
 	protected  @NotNull InteractionResult useItemOn(@NotNull ItemStack pStack, @NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Player pPlayer, @NotNull InteractionHand pHand, @NotNull BlockHitResult pHitResult) {
 
 		if (pLevel instanceof ServerLevel level) {
-            TagKey<Item> tag = ItemTags.create(ResourceLocation.fromNamespaceAndPath(SimpleHardcoreRespawn.MOD_ID, "respawn_item"));
 
             if (CanRespawn(pStack, pState, pLevel, pPos, pPlayer, pHand, pHitResult)) {
 
@@ -172,7 +163,7 @@ public class ReSpawnerBlock extends Block {
 	 * Easter egg...
 	 */
 	private void EasterEggEffect(@NotNull ItemStack pStack, @NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Player pPlayer, @NotNull InteractionHand pHand, @NotNull BlockHitResult pHitResult) {
-		SimpleHardcoreRespawn.LOGGER.fatal("Respawner action interrupted by player [069a79f4-44e9-4726-a5be-fca90e38aaf5]");
+		Constants.LOG.error("Respawner action interrupted by player [069a79f4-44e9-4726-a5be-fca90e38aaf5]");
 		if (pLevel instanceof ServerLevel _level)
 			_level.sendParticles(ParticleTypes.SOUL, (pPos.getX() + 0.5), (pPos.getY() + 2), (pPos.getZ() + 0.5), 1, 0, 0, 0, 0);
 	}
@@ -250,7 +241,7 @@ public class ReSpawnerBlock extends Block {
 			// Consume item:
 			if (!pPlayer.isCreative())
 				if (pStack.isDamageableItem()) {
-					EquipmentSlot slot = pStack.getEquipmentSlot();
+					EquipmentSlot slot = pPlayer.getEquipmentSlotForItem(pStack);
 					if (slot == null) slot = pHand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND;
 					pStack.hurtAndBreak(1, pPlayer, slot);
 				} else
@@ -285,7 +276,7 @@ public class ReSpawnerBlock extends Block {
 			// Consume item:
 			if (!pPlayer.isCreative())
 				if (pStack.isDamageableItem()) {
-					EquipmentSlot slot = pStack.getEquipmentSlot();
+					EquipmentSlot slot = pPlayer.getEquipmentSlotForItem(pStack);
 					if (slot == null) slot = pHand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND;
 					pStack.hurtAndBreak(1, pPlayer, slot);
 				} else
@@ -314,14 +305,12 @@ public class ReSpawnerBlock extends Block {
 			// Consume item.
 			if (!pPlayer.isCreative()) {
 				if (pStack.isDamageableItem()) {
-					EquipmentSlot slot = pStack.getEquipmentSlot();
-					if (slot == null) slot = pHand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND;
+					var slot = pHand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND;
 					pStack.hurtAndBreak(1, pPlayer, slot);
 				} else {
 					pStack.shrink(1);
 				}
 			}
-            SimpleHardcoreRespawn.LOGGER.debug("Preparing to load. totalPower: " + totalPower);
 			// Charge
             BlockState state = pState
                     .setValue(ReSpawnerBlock.POWER  , totalPower % (MAX_POWER+1))
@@ -353,7 +342,7 @@ public class ReSpawnerBlock extends Block {
 	 * @return {@code true} if respawn action can be attempted.
 	 */
 	private boolean CanRespawn(@NotNull ItemStack pStack, @NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Player pPlayer, @NotNull InteractionHand pHand, @NotNull BlockHitResult pHitResult) {
-		return pStack.is(ItemTags.create(SimpleHardcoreRespawn.MOD_ID, "respawn_item"))
+		return pStack.is(SimpleHardcoreRespawnTags.RESPAWN_ITEM)
 				&& IsCharged(pState, pLevel, pPos)
 				&& pLevel.getBlockState(pPos.above()).isAir() && pLevel.getBlockState(pPos.above().above()).isAir();
 	}
@@ -372,7 +361,7 @@ public class ReSpawnerBlock extends Block {
 	 * @return {@code true} if respawn action can be attempted.
 	 */
 	private boolean CanCharge(@NotNull ItemStack pStack, @NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Player pPlayer, @NotNull InteractionHand pHand, @NotNull BlockHitResult pHitResult) {
-		return pStack.is(ItemTags.create(SimpleHardcoreRespawn.MOD_ID, "respawner_fuel")) && pState.getValue(ReSpawnerBlock.CHARGES) < 4;
+		return pStack.is(SimpleHardcoreRespawnTags.RESPAWNER_FUEL) && pState.getValue(ReSpawnerBlock.CHARGES) < 4;
 	}
 
 	/**
@@ -393,10 +382,9 @@ public class ReSpawnerBlock extends Block {
 	 * @return Amount of fuel power.
 	 */
 	private int GetFuelPower(@NotNull ItemStack pStack, @NotNull Level pLevel) {
-		for (int i = 1; i <= 24; i++) {
-			TagKey<Item> tag = ItemTags.create(SimpleHardcoreRespawn.MOD_ID, "respawner_fuel/" + i);
-			if (pStack.is(tag)) return i;
-		}
+		for (int i = 0; i < SimpleHardcoreRespawnTags.RESPAWNER_FUEL_LEVEL.length; i++) {
+            if (pStack.is(SimpleHardcoreRespawnTags.RESPAWNER_FUEL_LEVEL[i])) return i+1;
+        }
 		return 0;
 	}
 

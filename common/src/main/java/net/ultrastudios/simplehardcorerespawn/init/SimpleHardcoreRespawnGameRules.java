@@ -1,15 +1,15 @@
-
-/*
- *    MCreator note: This file will be REGENERATED on each build.
- */
 package net.ultrastudios.simplehardcorerespawn.init;
 
-import net.minecraftforge.fml.common.Mod;
-
 import net.minecraft.world.level.GameRules;
+import net.ultrastudios.simplehardcorerespawn.platform.Services;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class SimpleHardcoreRespawnGameRules {
-	public static final GameRules.Key<GameRules.BooleanValue> RESPAWNER_CHARGING = GameRules.register("respawnerCharging", GameRules.Category.MISC, GameRules.BooleanValue.create(true));
-	public static final GameRules.Key<GameRules.BooleanValue> RESPAWNER_UNBANNING = GameRules.register("respawnerUnbanning", GameRules.Category.MISC, GameRules.BooleanValue.create(false));
+    public static GameRules.Key<GameRules.BooleanValue> RESPAWNER_CHARGING;
+
+    public static GameRules.Key<GameRules.BooleanValue> RESPAWNER_UNBANNING;
+
+    public static void register() {
+        RESPAWNER_CHARGING = Services.PLATFORM.registerBooleanGameRule("respawnerCharging", GameRules.Category.MISC, true);
+        RESPAWNER_UNBANNING = Services.PLATFORM.registerBooleanGameRule("respawnerUnbanning", GameRules.Category.MISC, false);
+    }
 }
