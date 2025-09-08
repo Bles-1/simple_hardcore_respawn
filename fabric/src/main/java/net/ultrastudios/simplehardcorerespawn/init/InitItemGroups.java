@@ -1,13 +1,10 @@
 package net.ultrastudios.simplehardcorerespawn.init;
 
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.ultrastudios.simplehardcorerespawn.Constants;
-import org.jetbrains.annotations.NotNull;
 
-public class InitTabs {
-
+public class InitItemGroups {
+    public static void init() {
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(SimpleHardcoreRespawnTabs::fillFunctionalBlocksTab);
+    }
 }

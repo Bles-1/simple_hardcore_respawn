@@ -1,9 +1,14 @@
 package net.ultrastudios.simplehardcorerespawn.platform;
 
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.block.Block;
-//import net.minecraft.register //... ERROR here, `Cannot resolve symbol 'register'`
+import net.ultrastudios.simplehardcorerespawn.Constants;
 import net.ultrastudios.simplehardcorerespawn.platform.services.IPlatformHelper;
 import net.fabricmc.loader.api.FabricLoader;
 
@@ -30,22 +35,23 @@ public class FabricPlatformHelper implements IPlatformHelper {
 
     @Override
     public <T extends Block> Supplier<T> registerBlock(String id, Supplier<T> block) {
-        return null;
+        T registered = Registry.register(BuiltInRegistries.BLOCK, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, id), block.get());
+        return () -> registered;
     }
 
     @Override
     public <T extends Item> Supplier<T> registerItem(String id, Supplier<T> item) {
-        //RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FabricDocsReference.MOD_ID, id)); // Here, I tried to copy registry code from docs.fabricmc.net, but there are no imports for this.
-        return null;
+        T registered = Registry.register(BuiltInRegistries.ITEM, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, id), item.get());
+        return () -> registered;
     }
 
     @Override
     public GameRules.Key<GameRules.BooleanValue> registerBooleanGameRule(String id, GameRules.Category category, boolean defaultValue) {
-        return null;
+        return GameRuleRegistry.register(id, category, GameRuleFactory.createBooleanRule(defaultValue));
     }
 
     @Override
     public GameRules.Key<GameRules.IntegerValue> registerIntegerGameRule(String id, GameRules.Category category, int defaultValue) {
-        return null;
+        return GameRuleRegistry.register(id, category, GameRuleFactory.createIntRule(defaultValue));
     }
 }
