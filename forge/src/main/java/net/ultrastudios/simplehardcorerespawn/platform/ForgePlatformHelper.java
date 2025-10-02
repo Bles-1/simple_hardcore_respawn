@@ -4,6 +4,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -12,6 +13,7 @@ import net.ultrastudios.simplehardcorerespawn.platform.services.IPlatformHelper;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLLoader;
 
+import java.nio.file.Path;
 import java.util.function.Supplier;
 
 public class ForgePlatformHelper implements IPlatformHelper {
@@ -63,5 +65,15 @@ public class ForgePlatformHelper implements IPlatformHelper {
     public static void register(IEventBus bus) {
         BLOCKS.register(bus);
         ITEMS.register(bus);
+    }
+
+    @Override
+    public Path getGameDir() {
+        return FMLPaths.GAMEDIR.get();
+    }
+
+    @Override
+    public Path getConfigDir() {
+        return FMLPaths.CONFIGDIR.get();
     }
 }

@@ -12,6 +12,7 @@ import net.ultrastudios.simplehardcorerespawn.Constants;
 import net.ultrastudios.simplehardcorerespawn.platform.services.IPlatformHelper;
 import net.fabricmc.loader.api.FabricLoader;
 
+import java.nio.file.Path;
 import java.util.function.Supplier;
 
 public class FabricPlatformHelper implements IPlatformHelper {
@@ -53,5 +54,15 @@ public class FabricPlatformHelper implements IPlatformHelper {
     @Override
     public GameRules.Key<GameRules.IntegerValue> registerIntegerGameRule(String id, GameRules.Category category, int defaultValue) {
         return GameRuleRegistry.register(id, category, GameRuleFactory.createIntRule(defaultValue));
+    }
+
+    @Override
+    public Path getGameDir() {
+        return FabricLoader.getInstance().getGameDir();
+    }
+
+    @Override
+    public Path getConfigDir() {
+        return FabricLoader.getInstance().getConfigDir();
     }
 }

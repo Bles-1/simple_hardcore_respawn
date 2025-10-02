@@ -3,6 +3,19 @@ plugins {
     id 'net.neoforged.moddev'
 }
 
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation("net.ultrastudios.lorelink:neoforge:1.0.0-dev.6") {
+        capabilities {
+            requireCapability("net.ultrastudios.lorelink:lorelink")
+        }
+    }
+}
+
 neoForge {
     version = neoforge_version
     // Automatically enable neoforge AccessTransformers if the file exists

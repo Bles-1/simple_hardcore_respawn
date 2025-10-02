@@ -2,6 +2,12 @@ plugins {
     id 'multiloader-loader'
     id 'fabric-loom'
 }
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings (loom.layered {
@@ -10,6 +16,12 @@ dependencies {
     })
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+
+    modImplementation("net.ultrastudios.lorelink:fabric:1.0.0-dev.6") {
+        capabilities {
+            requireCapability("net.ultrastudios.lorelink:lorelink")
+        }
+    }
 }
 
 loom {

@@ -4,6 +4,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.block.Block;
 
+import java.nio.file.Path;
 import java.util.function.Supplier;
 
 public interface IPlatformHelper {
@@ -63,4 +64,18 @@ public interface IPlatformHelper {
     GameRules.Key<GameRules.BooleanValue> registerBooleanGameRule(String id, GameRules.Category category, boolean defaultValue);
 
     GameRules.Key<GameRules.IntegerValue> registerIntegerGameRule(String id, GameRules.Category category, int defaultValue);
+
+    /**
+     * Gets the directory where game/server is run from (usually .minecraft for clients).
+     *
+     * @return The directory of instance.
+     */
+    Path getGameDir();
+
+    /**
+     * Gets the directory where config files are usually stored.
+     *
+     * @return The config directory.
+     */
+    Path getConfigDir();
 }
