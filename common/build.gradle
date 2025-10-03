@@ -3,6 +3,7 @@ plugins {
     id 'net.neoforged.moddev'
 }
 
+
 neoForge {
     neoFormVersion = neo_form_version
     // Automatically enable AccessTransformers if the file exists
@@ -22,7 +23,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly('net.ultrastudios.lorelink:common:1.0.0-dev.6') {
+    compileOnly("net.ultrastudios.lorelink:common:${lorelink_version}") {
         capabilities {
             requireCapability 'net.ultrastudios.lorelink:lorelink-common-1.21.4'
         }
@@ -53,9 +54,7 @@ artifacts {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = "net.ultrastudios"
-            artifactId = "simple-hardcore-respawn-common"
-            version = "2.0.0.r1-SNAPSHOT"
+            version = "${version}"
         }
     }
     repositories {

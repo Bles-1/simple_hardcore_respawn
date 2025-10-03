@@ -83,7 +83,7 @@ dependencies {
     // Forge's hack fix
     implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
 
-    implementation fg.deobf('net.ultrastudios.lorelink:forge:1.0.0-dev.6')
+    implementation fg.deobf("net.ultrastudios.lorelink:forge:${lorelink_version}")
 }
 
 publishing {

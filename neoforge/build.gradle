@@ -9,7 +9,7 @@ repositories {
 }
 
 dependencies {
-    implementation("net.ultrastudios.lorelink:neoforge:1.0.0-dev.6") {
+    implementation("net.ultrastudios.lorelink:neoforge:${lorelink_version}") {
         capabilities {
             requireCapability("net.ultrastudios.lorelink:lorelink")
         }
