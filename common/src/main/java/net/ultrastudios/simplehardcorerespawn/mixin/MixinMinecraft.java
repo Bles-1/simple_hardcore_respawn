@@ -1,6 +1,5 @@
 package net.ultrastudios.simplehardcorerespawn.mixin;
 
-import net.ultrastudios.simplehardcorerespawn.Constants;
 import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -12,8 +11,5 @@ public class MixinMinecraft {
     
     @Inject(at = @At("TAIL"), method = "<init>")
     private void init(CallbackInfo info) {
-        
-        Constants.LOG.info("This line is printed by an example mod common mixin!");
-        Constants.LOG.info("MC Version: {}", Minecraft.getInstance().getVersionType());
     }
 }

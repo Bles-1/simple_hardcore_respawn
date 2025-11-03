@@ -25,3 +25,10 @@ mandatory=true
 versionRange="${minecraft_version_range}"
 ordering="AFTER"
 side="BOTH"
+
+[[dependencies.${mod_id}]]
+modID = "lorelink"
+mandatory = true
+versionRange = "${lorelink_version}"
+ordering = "AFTER"
+side = "BOTH"

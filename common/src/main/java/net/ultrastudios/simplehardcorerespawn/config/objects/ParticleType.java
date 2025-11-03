@@ -6,9 +6,7 @@ public enum ParticleType implements IFallbackEnum<ParticleType> {
     STANDARD,
     TOTEM,
     SOUL,
-    BEACON,
-    FANTASY,
-    PLAYER;
+    FANTASY;
 
     @Override
     public ParticleType getFallback() {

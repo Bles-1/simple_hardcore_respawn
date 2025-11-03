@@ -31,3 +31,10 @@ type="required"
 versionRange = "${minecraft_version_range}"
 ordering = "AFTER"
 side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modID = "lorelink"
+type="required"
+versionRange = "${lorelink_version}"
+ordering = "AFTER"
+side = "BOTH"

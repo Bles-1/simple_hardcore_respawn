@@ -1,9 +1,10 @@
 {
-  "advancements.back_one_day.title": "🎵Back One Day🎵",
+  "advancements.back_one_day.title": "\uD83C\uDFB5Back One Day\uD83C\uDFB5",
   "gamerule.respawnerUnbanning.description": "Odbanuj gracza Odradzaczem zamiast odradzać",
   "gamerule.respawnerCharging": "Ładowanie Odradzacza",
   "advancements.back_one_day.descr": "Zostań odrodzony na trybie Hardocre!",
   "gamerule.respawnerUnbanning": "Odblokowywanie Odradzaczem",
   "gamerule.respawnerCharging.description": "Czy Odradzacz wymaga ładowania",
-  "block.simple_hardcore_respawn.re_spawner": "Odradzacz"
+  "block.simple_hardcore_respawn.re_spawner": "Odradzacz",
+  "item.simple_hardcore_respawn.re_spawner": "Odradzacz"
 }

@@ -18,6 +18,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.portal.TeleportTransition;
 import net.ultrastudios.lorelink.modsconfig.shr.IActionHandler;
 import net.ultrastudios.lorelink.utils.Advancements;
 import net.ultrastudios.lorelink.utils.BanListHelper;
@@ -101,7 +102,7 @@ public class DefaultActionHandler implements IActionHandler {
         if (!targetFound) return  InteractionResult.FAIL;
         // Action:
         target.setGameMode(level.getServer().getDefaultGameType());
-        target.teleportTo(pos.getX(), pos.getY()+1, pos.getZ());
+        target.teleportTo(pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5);
         // Advancement for respawned player:
         ResourceLocation advancementID = ResourceLocation.parse("simple_hardcore_respawn:back_one_day");
         AdvancementHolder advancement = level.getServer().getAdvancements().get(advancementID);
