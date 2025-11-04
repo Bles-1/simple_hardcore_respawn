@@ -33,6 +33,14 @@ _Craft a Re-Spawner and use the totem to respawn your friend on Hardcore._
 
 ### Extra features:
 
+### <span style="color:#C050F0">Optional particles</span>
+
+Go to `.minecraft/config/ultraconfig/simple_hardcore_respawn.json` and modify "particles" field to one of these:
+- STANDARD - default (totem)
+- TOTEM
+- SOUL
+- FANTASY
+
 ### <span style="color:#fbeeb8">/gamerule respawnerUnbanning [true|false]</span>
 
 Set to true if your server has a mechanic for banning players upon death. If true, respawner will unban player with given nickname.
@@ -49,13 +57,18 @@ You can make java extensions for this mod, see [Lore Link Developer Guide](https
 
 ## <span style="color:#ced4d9"><strong>FAQ:</strong></span>
 
+### <span style="color:#ecf0f1">Game crashes while starting with message</span>
+`Multiple mods tried to register custom action handler for Simple Hardcore Respawn. To avoid this error, try deleting conflicted mods or choose one in config/ultraconfig/lorelink.json file in duplicate_strategy field.`
+
+[Go here](https://github.com/Bles-1/LoreLink/blob/master/DEVELOPER_GUIDE.md)
+
 ### <span style="color:#ecf0f1">Can I use this mod in my video?</span>
 
 Yes, as long as you provide __credits.__ (Author and download link in description) If you want to use **modpack** that contain our mod, you should give credits to the modpack. Optional, you can give us link to this video on <span style="font-family:monospace">discord.</span>
 
 ### <span style="color:#ecf0f1">Can I use this mod in my modpack?</span>
 
-If you want to use our mod in your modpack **on curseforge**, __you don't need to do anything__ else, because curseforge automatically creates mods list. If you want to use our mod in your modpack **outside curseforge**, you should provide __credits__. (consider creating a included mods list) Optional, you can give us link to this modpack on <span style="font-family:monospace">discord</span>.
+If you want to use our mod in your modpack **on curseforge**, __you don't need to do anything__ else, because curseforge automatically creates mods list. If you want to use our mod in your modpack **outside curseforge**, you should provide __credits__. (consider creating a included mods list) Optional, you can give us link to this modpack on <span astyle="font-family:monospace">discord</span>.
 
 ### <span style="color:#ecf0f1">Can I use this mod in *<em>something else*</em>?</span>
 
